@@ -10,7 +10,7 @@ def combine_files(input_files, output_file):
 
 if __name__ == "__main__":
     # specify the directory where the text files are located
-    input_dir = './block_files'
+    input_dir = 'block_list_files'
     # get a list of all the text files in the directory
     input_files = [os.path.join(input_dir, f) for f in os.listdir(input_dir) if f.endswith('.txt')]
     # specify the output file name
