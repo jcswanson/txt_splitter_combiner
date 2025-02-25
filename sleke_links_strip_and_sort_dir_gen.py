@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 def get_first_alphanumeric(domain):
     for char in domain:
         if char.isalnum():
-            return char.lower() if char.isalpha() else '0'
+            return char.lower() if char.isalpha() else char
     return '0'  # Default to '0' if no alphanumeric character is found
 
 
@@ -20,16 +20,13 @@ def remove_www(domain):
 def sort_domains(file_name):
     logging.info(f"Starting to process file: {file_name}")
 
-    # Create the output directory if it doesn't exist
     output_dir = 'sorted_domains'
     os.makedirs(output_dir, exist_ok=True)
     logging.info(f"Output directory created: {output_dir}")
 
-    # Dictionary to hold domains for each file
-    domain_files = {char: [] for char in string.ascii_lowercase + string.digits}
+    domain_files = {char: [] for char in string.digits + string.ascii_lowercase}
     logging.debug(f"Initialized domain_files dictionary with {len(domain_files)} keys")
 
-    # Read and sort domains
     try:
         with open(file_name, 'r') as file:
             for line_num, line in enumerate(file, 1):
@@ -47,8 +44,7 @@ def sort_domains(file_name):
         logging.error(f"Error reading input file: {e}")
         return
 
-    # Write sorted domains to files
-    for char in string.ascii_lowercase + string.digits:
+    for char in string.digits + string.ascii_lowercase:
         if domain_files[char]:
             output_file = os.path.join(output_dir, f'{char}_domains.txt')
             try:
