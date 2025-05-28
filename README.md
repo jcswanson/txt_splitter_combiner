@@ -1,6 +1,7 @@
-# Block List Generator
+# Text File Generator for Making Lists
+## Using it as a Block List Generator
 
-A comprehensive Python-based system for creating and managing domain blocklists from multiple sources. This tool combines local blocklist files with web-based sources to generate organized, deduplicated domain blocklists in multiple formats.
+A Python-based script system for creating and managing .txt filed domain blocklists from multiple sources. This tool combines local blocklist files with web-based sources to generate organized, deduplicated domain blocklists in multiple formats.
 
 ## 🚀 Features
 
